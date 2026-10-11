@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "Starting static website build"
+
+  pre_build:
+    commands:
+      - test -f index.html
+      - test -f css/style.css
+      - test -f js/script.js
+
+  build:
+    commands:
+      - echo "Website files checked successfully"
+
+artifacts:
+  files:
+    - '**/*'
+  exclude-paths:
+    - '.git/**/*'
